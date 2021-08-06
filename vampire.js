@@ -24,8 +24,8 @@ class Vampire {
     let vampCounter = 0;
     let currentVamp = this;
     //As long as the vampire has a creator, we continue "looping" up the list
-    while (currentVamp.creator){
-      currentVamp = currentVamp.creator
+    while (currentVamp.creator) {
+      currentVamp = currentVamp.creator;
       vampCounter++;
     }
     return vampCounter;
@@ -33,7 +33,7 @@ class Vampire {
 
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
   isMoreSeniorThan(vampire) {
-    if (this.numberOfVampiresFromOriginal < vampire.numberOfVampiresFromOriginal){
+    if (this.numberOfVampiresFromOriginal < vampire.numberOfVampiresFromOriginal) {
       return true;
     }
     return false;
@@ -51,31 +51,31 @@ class Vampire {
     //As long as the vampire has a creator, we continue "looping" up the list
     // Trying to find a match
     vampire.offspring.forEach(kid => {
-      if (kid === vampire2){
+      if (kid === vampire2) {
         return vampire;
       }
-    })
+    });
     vampire2.offspring.forEach(kid => {
-      if (kid === vampire){
+      if (kid === vampire) {
         return vampire2;
       }
-    })
-    while (vampire !== vampire2){
-      if (vampire.creator === null){
+    });
+    while (vampire !== vampire2) {
+      if (vampire.creator === null) {
         vampire = vampire;
       } else {
         vampire = vampire.creator;
       }
-      if (vampire2.creator === null){
+      if (vampire2.creator === null) {
         vampire2 = vampire2;
       } else {
         vampire2 = vampire2.creator;
-      }  
+      }
     }
-    if (vampire.yearConverted <= vampire2.yearConverted){
-      return vampire
+    if (vampire.yearConverted <= vampire2.yearConverted) {
+      return vampire;
     } else {
-      return vampire2
+      return vampire2;
     }
   }
 }
